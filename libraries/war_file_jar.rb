@@ -8,7 +8,7 @@ class WarFileJar < Inspec.resource(1)
     @opts = opts
     raise "war_file_jar: Must supply path:" unless @opts[:path]
     raise "war_file_jar: Must supply jar:" unless @opts[:jar]
-    @warfile = Zip::File.open(@opts[:path])
+    @warfile = Zip::File.open(@opts[:path], create: false)
   end
 
   def war_file_names
